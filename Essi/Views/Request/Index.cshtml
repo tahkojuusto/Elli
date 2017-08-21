@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Essi.Models.Request>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseRound)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Exercise.ID)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RequestCreatedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentUser.StudentNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExerciseRound)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Exercise.ID)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestCreatedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentUser.StudentNumber)
+        </td>
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

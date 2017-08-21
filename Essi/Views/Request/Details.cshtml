@@ -1,0 +1,41 @@
+﻿@model Essi.Models.Request
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Exercise.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercise.Name)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExerciseRound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExerciseRound)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestCreatedTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestCreatedTime)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

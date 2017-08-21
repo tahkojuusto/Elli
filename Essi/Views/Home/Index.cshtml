@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Essi.Models.Request> 
+
+@{
+    ViewBag.Title = "Essi";
+}
+
+<div class="jumbotron">
+    <h1>@ViewBag.Title</h1>
+    <p class="lead">Assistant reservation system for exercise sessions.</p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentUser.StudentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseRound)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestCreatedTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentUser.StudentNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseRound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestCreatedTime)
+            </td>
+        </tr>
+    }
+</table>

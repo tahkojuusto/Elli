@@ -1,0 +1,59 @@
+﻿@model Essi.Models.Request
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Request</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ExerciseRound, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.ExerciseRound, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.EnumDropDownListFor(model => model.ExerciseRound, htmlAttributes: new { @class = "form-control" })
+
+                @*@Html.ValidationMessageFor(model => model.ExerciseRound, "", new { @class = "text-danger" })*@
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Request.Exercise, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Exercise.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EnumDropDownListFor(model => model.Exercise, htmlAttributes: new { @class = "form-control" })
+
+                <select id="dropdown" class="select-box" name="Vendor">
+                    @foreach (var row in exercises)
+                    {
+                        <option>@row.Name</option>
+                    }
+                </select>
+
+                @Html.ValidationMessageFor(model => model.Exercise, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
