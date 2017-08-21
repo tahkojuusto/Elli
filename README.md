@@ -5,7 +5,7 @@ Assistant reservation system for exercise sessions.
 
 ![Login](Pictures/login.png?raw=true "Login")
 
-![Register](Pictures/register.png?raw=true "Register")
+![Requests](Pictures/request_index.png?raw=true "Requests")
 
 ![New Request](Pictures/create_request.png?raw=true "New Request")
 
