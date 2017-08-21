@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.3
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Essi", "Essi\Essi.csproj", "{75DE230C-8044-4A75-8D85-8E454A3E581C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EssiTests", "EssiTests\EssiTests.csproj", "{3E742641-C955-465C-9883-7BD0BA4F5259}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{75DE230C-8044-4A75-8D85-8E454A3E581C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75DE230C-8044-4A75-8D85-8E454A3E581C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75DE230C-8044-4A75-8D85-8E454A3E581C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E742641-C955-465C-9883-7BD0BA4F5259}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E742641-C955-465C-9883-7BD0BA4F5259}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E742641-C955-465C-9883-7BD0BA4F5259}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E742641-C955-465C-9883-7BD0BA4F5259}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
