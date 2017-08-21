@@ -55,13 +55,9 @@ namespace Essi.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage = message == ManageMessageId.Error ? "An error has occurred." : "";
-
-            var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
-            {
-                HasPassword = HasPassword()
-            };
-
+         
+            // Checks whether the password field is empty. Not needed anywhere but keeping this just to make sure..
+            var model = new IndexViewModel { HasPassword = HasPassword() };
             return View(model);
         }
 

@@ -9,23 +9,27 @@ using System;
 
 namespace Essi.Models
 {
+    /// <summary>
+    /// Student, which inherits from the default application user class.
+    /// </summary>
     public class StudentUser : ApplicationUser
     {
         [Display(Name = "Student")]
         public string StudentNumber { get; set; }
 
-        public Boolean IsTeacher { get; set; }
-
+        /// <summary>
+        /// Course the student is attending.
+        /// </summary>
         public virtual Course Course { get; set; }
 
         public StudentUser()
         {
+
         }
 
         public StudentUser(string studentNumber) : base(studentNumber)
         {
             this.StudentNumber = studentNumber;
-            this.IsTeacher = false;
         }
     }
 }

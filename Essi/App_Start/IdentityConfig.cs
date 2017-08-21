@@ -24,15 +24,7 @@ namespace Essi
 
         private void CreateDefaultUser(ApplicationDbContext context)
         {
-            //var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
-            //var name = "teacher";
-            //var password = "teacher";
-
-            //var user = new StudentUser(name);
-            //user.IsTeacher = true;
-
-            //UserManager.Create(user, password);
         }
     }
 

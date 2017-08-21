@@ -14,6 +14,7 @@ namespace Essi.Controllers
 
         public ActionResult Index()
         {
+            // Show all requests made by all students in creation time order.
             return View(db.Requests.ToList().OrderBy(c => c.RequestCreatedTime));
         }
     }

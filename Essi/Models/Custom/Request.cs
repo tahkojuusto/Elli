@@ -9,8 +9,14 @@ using System.Web;
 
 namespace Essi.Models
 {
+    /// <summary>
+    /// Help request made by a student for the course assistant.
+    /// </summary>
     public class Request
     {
+        /// <summary>
+        /// Status flag indicating whether the student has received aid.
+        /// </summary>
         public enum RequestStatus
         {
             Waiting,
@@ -27,6 +33,9 @@ namespace Essi.Models
 
         public RequestStatus Status { get; set; }
 
+        /// <summary>
+        /// Exercise round where help is needed.
+        /// </summary>
         [Display(Name = "Exercise Round")]
         public Course.ExerciseRoundEnum ExerciseRound { get; set; }
 

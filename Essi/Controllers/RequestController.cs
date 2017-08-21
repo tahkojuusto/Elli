@@ -21,14 +21,20 @@ namespace Essi.Controllers
         public async Task<ActionResult> Index()
         {
             var user = db.Users.Find(User.Identity.GetUserId());
-            var userName = "";
+            var userName = user.UserName;
 
+            // Use student number as username.
             if (user is StudentUser)
             {
                 var student = (StudentUser)user;
                 userName = student.StudentNumber;
+            } else
+            {
+                // Not a student. Should not be possible..
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            // Return all requests made by this student ordered by creation time.
             return View(db.Requests.Where(u => u.StudentUser.StudentNumber == userName).OrderBy(c => c.RequestCreatedTime));
         }
 
@@ -38,12 +44,14 @@ namespace Essi.Controllers
         {
             if (id == null)
             {
+                // Request id not specified for details.
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             Request request = await db.Requests.FindAsync(id);
             var student = db.Users.Find(User.Identity.GetUserId());
 
+            // Check that the request exists and it is made by the same student.
             if (request == null)
             {
                 return HttpNotFound();
@@ -78,12 +86,17 @@ namespace Essi.Controllers
                 if (student is StudentUser)
                 {
                     request.StudentUser = (StudentUser)student;
+                } else
+                {
+                    // Not a student. Should not be possible..
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
 
+                // Request was made now.
                 request.RequestCreatedTime = DateTime.Now;
 
                 db.Requests.Add(request);
-                await db.SaveChangesAsync();
+                await db.SaveChangesAsync(); // await is here redundant as this should be a sync call anyway. Leaving it because it was there by default..
 
                 return RedirectToAction("Index");
             }
@@ -97,12 +110,14 @@ namespace Essi.Controllers
         {
             if (id == null)
             {
+                // Request id not specified.
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
             Request request = await db.Requests.FindAsync(id);
             var student = db.Users.Find(User.Identity.GetUserId());
 
+            // Checks that the request exists and is made by the same student.
             if (request == null)
             {
                 return HttpNotFound();
@@ -133,6 +148,7 @@ namespace Essi.Controllers
                     return RedirectToAction("Index");
                 }
 
+                // Editing does not update creation time (as it should be).
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
@@ -152,6 +168,7 @@ namespace Essi.Controllers
 
             var student = db.Users.Find(User.Identity.GetUserId());
 
+            // Do not even allow warning message to be shown other students..
             if (request == null)
             {
                 return HttpNotFound();
@@ -174,6 +191,7 @@ namespace Essi.Controllers
 
             var student = db.Users.Find(User.Identity.GetUserId());
 
+            // Do not allow other students to delete this :)
             if (request.StudentUser.StudentNumber != student.UserName)
             {
                 return RedirectToAction("Index");

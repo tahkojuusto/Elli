@@ -10,8 +10,14 @@ using System.Web;
 
 namespace Essi.Models
 {
+    /// <summary>
+    /// The course, which uses the exercise queuing application.
+    /// </summary>
     public class Course
     {
+        /// <summary>
+        /// Exercise round names enumerated.
+        /// </summary>
         public enum ExerciseRoundEnum
         {
             HTML1,

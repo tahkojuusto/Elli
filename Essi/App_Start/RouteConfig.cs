@@ -13,6 +13,7 @@ namespace Essi
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Use the default ASP.NET routing format.
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

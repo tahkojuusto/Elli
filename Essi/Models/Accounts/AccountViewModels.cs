@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Essi.Models
 {
+    /// <summary>
+    /// Form fields of a student shown in the login user interface.
+    /// </summary>
     public class LoginViewModel
     {
         [Display(Name = "Student Number")]
@@ -16,10 +19,13 @@ namespace Essi.Models
         public string Password { get; set; }
     }
 
+    /// <summary>
+    /// Form fields of a student shown in the registration.
+    /// </summary>
     public class RegisterViewModel
     {
         [Display(Name = "Student Number")]
-        [StringLength(7, MinimumLength = 6)]
+        [StringLength(7, MinimumLength = 6)] // Student numbers are always > 6 chars.
         [Required]
         public string StudentNumber { get; set; }
 
